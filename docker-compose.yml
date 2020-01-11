@@ -1,0 +1,39 @@
+version: '3.7'
+
+services:
+  backend:
+    build: .
+    command: bash -c "python manage.py flush --noinput && python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    expose:
+      - "8000"
+    links:
+        - redis:redis
+    networks: ['mynetwork']
+    hostname: backend
+  redis:
+    restart: always
+    image: redis:latest
+    expose:
+      - "6379"
+    ports:
+        - "6379:6379"
+    networks: ['mynetwork']
+  frontend:
+    build: ./frontend
+    volumes:
+        - ./frontend:/app
+        - /app/node_modules
+    ports:
+        - "3000:3000"
+    environment:
+        - NODE_ENV=development
+    links:
+      - backend:backend
+    networks: ['mynetwork']
+    command: yarn --cwd chat-app/ start
+    
+networks: {mynetwork: {}}

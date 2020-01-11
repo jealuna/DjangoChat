@@ -1,0 +1,84 @@
+.chat {
+    height: 100vh;
+}
+
+.chat .container {
+    padding: 0 30px;
+    height: 80%;
+}
+.chat .container.message-form {
+    height: 10%;
+    margin-top: 5%;
+}
+
+.chat input {
+    color: #7e99a0;
+    font-size: 1em;
+    font-weight: 300;
+    line-height: 19px;
+    padding: 5px;
+    box-sizing: border-box;
+    display: inline-block;
+    width: 80%;
+    float: left;
+}
+.chat button {
+    background-color: #0084ff;
+    border-color: #0084ff;
+    border-style: solid;
+    color: white;
+    font-size: 1em;
+    padding: 5px;
+    width: 20%;
+    float: left;
+}
+.chat ul {
+    list-style: none;
+    overflow-y: scroll;
+    margin: 0;
+    padding: 0;
+    max-height: 60vh;
+}
+.chat ul li {
+    clear: both;
+    display: block;
+    margin-bottom: 5px;
+    max-width: 47%;
+    min-width: 8%;
+}
+.chat ul li p {
+    border-radius: 100px / 50px;
+    padding: 5px 20px;
+    margin: 0;
+}
+.chat ul li .author {
+    color: grey;
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+    margin: 0 2%;
+    font-weight: 300;
+    font-size: 12px;
+}
+.chat .respuesta {
+    float: left;
+    text-align: left;
+}
+.chat .respuesta p {
+    background: #eee;
+}
+.chat .yo {
+    float: right;
+    text-align: right;
+}
+
+.chat .yo p {
+    background: #0084ff;
+    color: #fff;
+}
+
+.chat .yo + .yo p {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
